@@ -88,3 +88,5 @@ enabled=1
 
 ## Part 6 Install Sernet-Samba
 - Use the following command `yum install sernet-samba --allowerasing` we use allowerasing to replace conflicting packages.
+You will see the following result:
+![sernet](https://user-images.githubusercontent.com/23640313/126378524-851fb43c-12c9-4b46-b3a4-2f74355ae51b.png)
