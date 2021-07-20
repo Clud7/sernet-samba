@@ -87,6 +87,8 @@ enabled=1
 > Note that you have to change they KEY and the PASSWORD. As key use your username from https://oposso.samba.plus/subscription.php and as password the password that you have set.
 
 ## Part 6 Install Sernet-Samba
-- Use the following command `yum install sernet-samba --allowerasing` we use allowerasing to replace conflicting packages.
-You will see the following result:
-![sernet](https://user-images.githubusercontent.com/23640313/126378524-851fb43c-12c9-4b46-b3a4-2f74355ae51b.png)
+- Use the following command `yum install sernet-samba-ad --allowerasing` we use allowerasing to replace conflicting packages.
+
+- Install also the `yum install sernet-samba-ad-tools` if needed.
+
+## Part 6 Configure WinBind and NTP (Chrony as NTP server).
