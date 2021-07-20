@@ -92,3 +92,11 @@ enabled=1
 - Install also the `yum install sernet-samba-ad-tools` if needed.
 
 ## Part 6 Configure WinBind and NTP (Chrony as NTP server).
+- Install BIND DNS Server with command `yum install bind`
+
+
+## Part 7 JOIN Existed Domain
+Use the following command to join to existed domain
+```
+samba-tool join yourdomain.local DC -U"YOURDOMAIN\Administrator" --dns-backend=BIND9_DLZ --option="idmap_ldb:use rfc2307 = yes" --option="dns forwarder=8.8.8.8"
+```
