@@ -96,6 +96,19 @@ enabled=1
 
 
 ## Part 7 JOIN Existed Domain
+Set SERNET-SAMBA Role as AD
+Go and edit the file `/etc/default/sernet-samba` and set the `SAMBA_START_MODE="none"` to `SAMBA_START_MODE="ad"`
+```
+# SAMBA_START_MODE defines how Samba should be started. Valid options are one of
+#   "none"    to not enable it at all,
+#   "classic" to use the classic smbd/nmbd/winbind daemons
+#   "ad"      to use the Active Directory server (which starts the smbd and
+#             winbindd on its own)
+# (Be aware that you also need to enable the services/init scripts that
+# automatically start up the desired daemons.)
+SAMBA_START_MODE="ad"
+```
+
 Use the following command to join to existed domain
 ```
 samba-tool domain join yourdomain.local DC -U"YOURDOMAIN\Administrator" --dns-backend=BIND9_DLZ --option="idmap_ldb:use rfc2307 = yes" --option="dns forwarder=8.8.8.8"
