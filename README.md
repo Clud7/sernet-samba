@@ -86,3 +86,5 @@ enabled=1
 ```
 > Note that you have to change they KEY and the PASSWORD. As key use your username from https://oposso.samba.plus/subscription.php and as password the password that you have set.
 
+## Part 6 Install Sernet-Samba
+Use the following command ` yum install sernet-samba --allowerasing` we use allowerasing to replace conflicting packages.
