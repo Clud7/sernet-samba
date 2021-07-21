@@ -209,7 +209,11 @@ include "/var/lib/samba/bind-dns/named.conf";
 
 ```
 
-
+Enable named to start on startup with the command `systemctl enable named`.
+Check the status of named --> `systemctl status named`.
 
 # Part 9 Fix your krb5.conf file
 Update or Replace your `/etc/krb5.conf` with the file `/var/lib/samba/private/krb5.conf`
+
+# Part 10 Fix your chrony and setup an NTP Server
+
