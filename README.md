@@ -93,6 +93,7 @@ enabled=1
 
 ## Part 6 Configure WinBind and NTP (Chrony as NTP server).
 - Install BIND DNS Server with command `yum install bind`
+> Do not edit your named server. Just install the bind.
 
 
 ## Part 7 JOIN Existed Domain
@@ -112,4 +113,9 @@ SAMBA_START_MODE="ad"
 Use the following command to join to existed domain
 ```
 samba-tool domain join yourdomain.local DC -U"YOURDOMAIN\Administrator" --dns-backend=BIND9_DLZ --option="idmap_ldb:use rfc2307 = yes" --option="dns forwarder=8.8.8.8"
+```
+
+Update DNS
+```
+samba_dnsupdate --verbose --use-samba-tool
 ```
