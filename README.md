@@ -126,6 +126,13 @@ samba_dnsupdate --verbose --use-samba-tool
 ```
 
 ## PART 8 Setup BIND9 DNS (NAMED)
+Check the `/var/lib/samba/bind-dns/named.conf` and remove the comment mark `#` for the correct version.
+
+Update your `named.conf`. 
+You can edit the named.conf via the webmin or even better via the following command `vi /etc/named.conf` and don't forget to fix the following:
+1) Add your static ip --> `listen-on port`
+2) Add the following line --> `tkey-gssapi-keytab "/var/lib/samba/private/dns.keytab";`
+3) Add the following line --> `include "/var/lib/samba/bind-dns/named.conf";`
 Your Configuration should be like:
 ```
 //
@@ -148,14 +155,14 @@ options {
 	secroots-file	"/var/named/data/named.secroots";
 	recursing-file	"/var/named/data/named.recursing";
 	allow-query     { localhost;
-    				  YOUR_LAN_NETWORK;
-                      YOUR_LAN2_NETWORK;
-                      };
+    			YOUR_LAN_NETWORK;
+                      	YOUR_LAN2_NETWORK;
+                      	};
                       
     forwarders {
     			1.1.1.1;
                 8.8.8.8;
-        };
+               };
 
 	/* 
 	 - If you are building an AUTHORITATIVE DNS server, do NOT enable recursion.
@@ -202,7 +209,7 @@ include "/var/lib/samba/bind-dns/named.conf";
 
 ```
 
-You can edit the named.conf via the webmin or even better via the following command `vi /etc/named.conf` and don't forget to fix the following:
-1) Add your static ip --> `listen-on port`
-2) Add the following line --> `tkey-gssapi-keytab "/var/lib/samba/private/dns.keytab";`
-3) Add the following line --> `include "/var/lib/samba/bind-dns/named.conf";`
+
+
+# Part 9 Fix your krb5.conf file
+Update or Replace your `/etc/krb5.conf` with the file `/var/lib/samba/private/krb5.conf`
