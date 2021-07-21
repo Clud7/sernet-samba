@@ -216,4 +216,20 @@ Check the status of named --> `systemctl status named`.
 Update or Replace your `/etc/krb5.conf` with the file `/var/lib/samba/private/krb5.conf`
 
 # Part 10 Fix your chrony and setup an NTP Server
+Chrony is already install on your Alma Linux but you can also check it via --> `yum install chrony`
+Check the status of chrony `systemctl status chronyd`.
 
+Edit the configuration file `vi /etc/chrony.conf` and add your main DC as iburst
+
+```
+pool time.google.com iburst
+server YOURSERVER_IP iburst
+```
+
+Allow NTP Queries from:
+```
+# Allow NTP client access from local network.
+#allow 192.168.0.0/16
+allow YOURNETWORK
+allow YOURNETWORK2
+```
