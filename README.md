@@ -91,6 +91,12 @@ enabled=1
 
 - Install also the `yum install sernet-samba-ad-tools` if needed.
 
+## Part 6U Update or Upgrade Sernet-Samba
+- Use the repo that you have and update  `yum update sernet-samba-ad` (you should have the latest version).
+- After that add the new repo like name=SerNet Samba 4.15 Packages (almalinux-8) (DO NOT DELETE THE OLD REPO 4.14)
+- Run `yum clean all` and  `yum update sernet-samba-ad` and you are rdy to go!
+- Now you can update your server by `yum update` command.
+
 ## Part 6 Configure WinBind and NTP (Chrony as NTP server).
 - Install BIND DNS Server with command `yum install bind`
 > Do not edit your named server. Just install the bind.
